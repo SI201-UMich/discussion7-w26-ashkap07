@@ -34,7 +34,7 @@ def load_listings(f):
     csvFile = csv.reader(inFile)
     headers = next(csvFile)
 
-    for row in inFile:
+    for row in csvFile:
         d = {}
         for i in range(len(headers)):
             d[headers[i]] = row[i]
@@ -101,7 +101,13 @@ def write_summary_csv(out_filename, avg_prices):
         None
             Writes a CSV file with header: neighbourhood_group, room_type, average_price
     """
-    pass
+    outFile = open("file_name", "w")
+    csvOut = csv.writer(outFile)
+    for pair in avg_prices: 
+        csvOut.write(pair)
+    
+
+    
 
 ###############################################################################
 ##### UNIT TESTS (Do not modify the code below!)
